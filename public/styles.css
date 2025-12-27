@@ -6,7 +6,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  min-height: 100vh;
 }
 
 .container {
@@ -15,23 +15,86 @@ body {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 h1 {
   color: #333;
+  margin-bottom: 20px;
+}
+
+.setup {
+  margin-bottom: 20px;
+}
+
+.setup label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+#interests {
+  padding: 8px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }
 
 #video-container {
   display: flex;
   justify-content: space-around;
   margin: 20px 0;
+  flex-wrap: wrap;
 }
 
 video {
-  width: 300px;
-  height: 225px;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  aspect-ratio: 4/3;
   border: 2px solid #333;
   border-radius: 5px;
+  margin: 10px;
+}
+
+#chat {
+  margin: 20px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #fafafa;
+}
+
+#messages {
+  height: 150px;
+  overflow-y: auto;
+  margin-bottom: 10px;
+  padding: 5px;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.chat-input {
+  display: flex;
+}
+
+#messageInput {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px 0 0 4px;
+}
+
+#sendButton {
+  padding: 8px 12px;
+  border: none;
+  background-color: #2196F3;
+  color: white;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
 }
 
 .controls {
@@ -52,7 +115,45 @@ button {
   color: white;
 }
 
-#stopButton {
+#skipButton {
+  background-color: #FF9800;
+  color: white;
+}
+
+#reportButton {
   background-color: #f44336;
   color: white;
+}
+
+@media (max-width: 600px) {
+  .container {
+    padding: 10px;
+  }
+
+  #video-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  video {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .controls button {
+    display: block;
+    width: 100%;
+    margin: 5px 0;
+  }
+
+  .setup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #interests {
+    margin-bottom: 10px;
+    margin-right: 0;
+  }
 }
